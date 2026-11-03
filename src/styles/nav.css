@@ -159,6 +159,7 @@
 }
 
 /* ---- 2. 768px and up (tablets) --------------------------------------- */
+/* ---- 2. 768px and up (tablets) --------------------------------------- */
 @media (min-width: 768px) {
   .navbar {
     flex-direction: row;
