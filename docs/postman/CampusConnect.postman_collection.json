@@ -1,0 +1,70 @@
+{
+  "info": {
+    "name": "CampusConnect API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:3000/api/v1" }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "request": { "method": "GET", "url": "{{baseUrl}}/health" }
+    },
+    {
+      "name": "login correct",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"email\": \"student@campusconnect.test\",\n  \"password\": \"Campus26\"\n}" },
+        "url": "{{baseUrl}}/sessions"
+      }
+    },
+    {
+      "name": "login wrong password",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"email\": \"student@campusconnect.test\",\n  \"password\": \"WrongPass1\"\n}" },
+        "url": "{{baseUrl}}/sessions"
+      }
+    },
+    {
+      "name": "login unknown email",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"email\": \"nobody@campusconnect.test\",\n  \"password\": \"Campus26\"\n}" },
+        "url": "{{baseUrl}}/sessions"
+      }
+    },
+    {
+      "name": "login empty body",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{}" },
+        "url": "{{baseUrl}}/sessions"
+      }
+    },
+    {
+      "name": "me with token",
+      "request": {
+        "method": "GET",
+        "auth": {
+          "type": "bearer",
+          "bearer": [{ "key": "token", "value": "{{token}}", "type": "string" }]
+        },
+        "url": "{{baseUrl}}/users/me"
+      }
+    },
+    {
+      "name": "me without token",
+      "request": {
+        "method": "GET",
+        "auth": { "type": "noauth" },
+        "url": "{{baseUrl}}/users/me"
+      }
+    }
+  ]
+}

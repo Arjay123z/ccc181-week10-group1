@@ -4,6 +4,7 @@ const cors = require('cors');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { findByEmail } = require('./users');
+const requireAuth = require('./middleware/auth');
 
 // Email Pattern
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -46,6 +47,19 @@ app.post('/api/v1/sessions', (req, res)=>{
     })
 })
 
+app.get('/api/v1/users/me', requireAuth, (req, res) => {
+  const { id, name, email } = req.user;
+  return res.status(200).json({ id, name, email });
+});
+
+app.use((req, res) => {
+  res.status(404).json({ error: 'Not found.' });
+});
+
+app.use((err, req, res, next) => {
+  console.error('Server error:', err.message);
+  res.status(500).json({ error: 'Something went wrong.' });
+});
 
 app.listen(PORT,() =>{
     console.log('API running on http://localhost:' + PORT);

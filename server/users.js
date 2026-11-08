@@ -14,3 +14,9 @@ function findByEmail(email) {
 }
 
 module.exports = {user, findByEmail}
+
+function findById(id) {
+    return user.find((u) => String(u.id) === String(id));
+}
+
+module.exports = { user, findByEmail, findById };
