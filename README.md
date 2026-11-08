@@ -83,11 +83,23 @@ npm install
 copy .env.example .env
 npm start
 ```
-Edit the values in `server/.env` if you want. The API runs at http://localhost:3000 and prints "API running on http://localhost:3000".
+It prints "API running on http://localhost:3000".
+Check: http://localhost:3000/api/v1/health should answer 200.
+
+**Terminal 2: the front end** 
+```
+npm install
+copy .env.example .env
+npm run dev
+```
+Open http://localhost:5173
 
 **Demo account:** `student@campusconnect.test` / `Campus26` (name: Demo Student)
 
-**Settings files:** `server/.env.example` holds fake values for `PORT`, `JWT_SECRET` and `CLIENT_ORIGIN`. The real `.env` files are never committed.
+**Settings files:** `server/.env.example` holds fake values for `PORT`,
+`JWT_SECRET` and `CLIENT_ORIGIN`. The root `.env.example` holds
+`VITE_API_URL`. The defaults work as they are. The real `.env` files are
+never committed.
 
 ### API summary
 
@@ -96,6 +108,12 @@ Edit the values in `server/.env` if you want. The API runs at http://localhost:3
 | GET | /api/v1/health | Checks that the API is running | 200 | |
 | POST | /api/v1/sessions | Logs in | 200 | 400, 401 |
 | GET | /api/v1/users/me | Returns the logged-in user (needs a token) | 200 | 401 |
+
+### Screenshots (Part 2)
+
+`screenshots/postman-health.png`, `postman-login-200.png`,
+`postman-login-401.png`, `postman-me-401.png`, `login-fail-360.png`,
+`login-success-360.png`.
 
 ### Who did what (Part 2)
 
