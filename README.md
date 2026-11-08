@@ -102,5 +102,5 @@ Edit the values in `server/.env` if you want. The API runs at http://localhost:3
 | Member | Name | GitHub username | What I did in Part 2 |
 | --- | --- | --- | --- |
 | 1 (leader) | Roldan James Calisagan | Arjay123z | Set up the Express backend (CORS, dotenv), the demo users with bcrypt-hashed passwords, and `POST /api/v1/sessions` with validation, 401 handling and a JWT token. |
-| 2 | Dan Jefferson B. Acera | djacera | |
+| 2 | Dan Jefferson B. Acera | djacera | Built `GET /api/v1/users/me` with a token-checking middleware (`server/middleware/auth.js`) and the 404 and 500 error handlers. Wrote `docs/API-SPEC.md` (with the Events design), made the Postman collection and the 4 Postman screenshots. |
 | 3 | Dave Rolence Brian O. Benson | DaveB530 | |
