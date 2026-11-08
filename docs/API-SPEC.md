@@ -4,6 +4,14 @@ Base URL: `http://localhost:3000/api/v1`
 
 All requests and responses use JSON.
 
+## Endpoint summary
+
+| Method | Endpoint | Purpose | Success | Errors |
+|---|---|---|---|---|
+| GET | `/api/v1/health` | Checks that the API is running. | 200 OK | — |
+| POST | `/api/v1/sessions` | Logs in and creates a session. | 200 OK | 400, 401 |
+| GET | `/api/v1/users/me` | Returns the logged-in user. Needs a token. | 200 OK | 401 |
+
 ## 1. Implemented endpoints
 
 ### GET /health
