@@ -71,3 +71,36 @@ We learned that mobile-first means designing the phone layout first and then add
 We practiced using CSS Grid for the page and footer layout and Flexbox for the navigation and the login form, and we learned to use rem and % for sizing. We also learned to make every tap target at least 48 px tall and to give every `:hover` style a matching `:focus-visible` style, so the page works for touch and keyboard users.
 
 For teamwork, we learned how to use Git branches, commits and pull requests, and that a reviewer must approve before merging. We ran into problems such as pushing from the wrong folder, a merged pull request that was reverted, and rejected pushes. We fixed them by checking `git log`, restoring the work on a new branch and pulling the latest `main` before continuing.
+
+# Part 2: Backend login (Weeks 12-13)
+
+### How to run
+
+**Terminal 1: the backend**
+```
+cd server
+npm install
+copy .env.example .env
+npm start
+```
+Edit the values in `server/.env` if you want. The API runs at http://localhost:3000 and prints "API running on http://localhost:3000".
+
+**Demo account:** `student@campusconnect.test` / `Campus26` (name: Demo Student)
+
+**Settings files:** `server/.env.example` holds fake values for `PORT`, `JWT_SECRET` and `CLIENT_ORIGIN`. The real `.env` files are never committed.
+
+### API summary
+
+| Method | Endpoint | Purpose | Success | Errors |
+| --- | --- | --- | --- | --- |
+| GET | /api/v1/health | Checks that the API is running | 200 | |
+| POST | /api/v1/sessions | Logs in | 200 | 400, 401 |
+| GET | /api/v1/users/me | Returns the logged-in user (needs a token) | 200 | 401 |
+
+### Who did what (Part 2)
+
+| Member | Name | GitHub username | What I did in Part 2 |
+| --- | --- | --- | --- |
+| 1 (leader) | Roldan James Calisagan | Arjay123z | Set up the Express backend (CORS, dotenv), the demo users with bcrypt-hashed passwords, and `POST /api/v1/sessions` with validation, 401 handling and a JWT token. |
+| 2 | Dan Jefferson B. Acera | djacera | |
+| 3 | Dave Rolence Brian O. Benson | DaveB530 | |
